@@ -1,11 +1,16 @@
-.header {
-	ul li {
-	display: inline;
-	}
+.top-bar {
+    background: grey;
+    height: 58px;
+    line-height: 58px;
+    margin-bottom: 0;
+
 }
 
-.footer {
-	ul li {
-	display: inline;
-	}
+.top-bar ul li {
+    display: inline;
+    list-style:none;
+    padding: 6px 12px;
+    align:right;
+
 }
+
