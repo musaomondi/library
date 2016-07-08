@@ -15,7 +15,11 @@ class User < ApplicationRecord
   end
 
   def User.new_token
-    SEcureRandom.urlsafe_baseb4
+    SecureRandom.urlsafe_baseb4
   end
 
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
 end
