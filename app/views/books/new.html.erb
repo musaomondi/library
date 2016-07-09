@@ -1,0 +1,23 @@
+<% provide(:title, 'save')%>
+        <h1>Add Book</h1>
+        <%= form_for(@book) do |f| %>
+            <%= f.label :category %>
+            <%= f.text_field :category %><br>
+
+            <%= f.label :title%>
+            <%= f.text_field :title %><br>
+
+            <%= f.label :edition %>
+            <%= f.text_field :edition %><br>
+
+            <%= f.label :author%>
+            <%= f.text_field :author %><br>
+
+            <%= f.label :year_published%>
+            <%= f.text_field:year_published%><br>
+
+            <%= f.submit "Save" %><br>
+
+    <% end %>
+    </div>
+
