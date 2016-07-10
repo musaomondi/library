@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation.dropdownMenu.js
 //= require turbolinks
 //= require_tree .

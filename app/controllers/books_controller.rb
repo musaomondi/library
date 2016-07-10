@@ -6,7 +6,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       flash[:success] = "Book successfully added!"
-      redirect_to @book 
+      redirect_to books_path
     else
       render 'new'
     end
@@ -15,6 +15,24 @@ class BooksController < ApplicationController
     @books = Book.all
   end
   def show
+  end
+  def edit
+    @book=Book.find_by(params[:id])
+  end
+  def update
+    @book =Book.find(params[:id])
+
+    if @book.update(book_params)
+      redirect_to books_path
+    else
+      render 'edit'
+    end
+  end
+  def destroy
+    @book=Book.find_by(params[:id])
+    @book.destroy
+
+    redirect_to books_path
   end
 
   private
