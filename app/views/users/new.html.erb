@@ -1,7 +1,7 @@
-<div class="medium-4 columns medium-offset-4">
+<div class="medium-6 columns medium-offset-3">
+    <% provide(:title, 'Register')%>
+    <h1>Register</h1>
     <div class="callout">
-        <% provide(:title, 'Register')%>
-        <h1>Register</h1>
         <%= form_for(@user) do |f| %>
             <%= render 'shared/error_messages'%>
             <%= f.label :name %>
@@ -18,8 +18,8 @@
 
             <%= f.submit "Register" %><br>
 
-            Already have an account <%= link_to "login", "#" %>
-    <% end %>
+        <% end %>
     </div>
+    Already have an account <%= link_to "login", "#" %>
 </div>
 

@@ -1,15 +1,18 @@
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
-<%= form_for(:session, url: login_path) do |f| %>
+<div class="medium-6 columns medium-offset-3">
+    <% provide(:title, "Log in") %>
+    <h1>Log in</h1>
+    <div class="callout">
+        <%= form_for(:session, url: login_path) do |f| %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name%> <br>
+            <%= f.label :name %>
+            <%= f.text_field :name%> <br>
 
-    <%= f.label :password%>
-    <%= link_to "(Forgot password)", "#" %><br>
-    <%= f.password_field :password%><br>
+            <%= f.label :password%>
+            <%= link_to "(Forgot password)", "#" %><br>
+            <%= f.password_field :password%><br>
 
-    <%= f.submit "Log in" %><br>
-<% end %>
-
-<p> New user? <%= link_to "Register here!", new_user_path %></p>
+            <%= f.submit "Log in" %><br>
+        <% end %>
+    </div>
+    <p> New user? <%= link_to "Register here!", new_user_path %></p>
+</div>

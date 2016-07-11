@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title><%= yield(:title) %> | Maseno University Library </title>
+      <title><%= yield(:title) %> | Innovative Library </title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,8 +13,8 @@
       <div class="container">
           <% flash.each do |message_type, message| %>
               <div class="alert alert-<%=message_type %>"><%=message %></div>
-              <% end %>
-               <%= yield %>
-               </div>
+          <% end %>
+          <%= yield %>
+      </div>
   </body>
 </html>

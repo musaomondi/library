@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class BooksControllerTest < ActionDispatch::IntegrationTest
+class BooksControllerTest < ActionController::TestCase
   test "should get new" do
-    get books_new_url
+    get :new
     assert_response :success
   end
 
