@@ -4,6 +4,11 @@ module SessionsHelper
     session[:user_id]=user.id
   end
 
+  def remember(user)
+    cookies[:remember_token] = { value: remember_token, expires: 20.years.from_now.utc }
+    cookies.signed[:user_id]=user.id
+  end
+
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end

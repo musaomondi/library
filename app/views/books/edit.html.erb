@@ -1,35 +1,39 @@
 
-<% provide(:title, 'edit')%>
-<h1>Edit Book</h1>
-<%= form_for :book, url: book_path(@book), method: :patch do |f| %>
-    <% if @book.errors.any? %>
-        <h2>
-            <%= pluralize(@book.errors.count, "error") %> prohibited
-            this book from being saved:
-        </h2>
-        <ul>
-            <% @book.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+<% provide(:title, 'Edit Book')%>
+<div class="medium-6 columns medium-offset-3">
+    <h1>Edit Book</h1>
+    <div class="callout">
+        <%= form_for :book, url: book_path(@book), method: :patch do |f| %>
+            <% if @book.errors.any? %>
+                <h2>
+                    <%= pluralize(@book.errors.count, "error") %> prohibited
+                    this book from being saved:
+                </h2>
+                <ul>
+                    <% @book.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+
             <% end %>
-        </ul>
+            <%= f.label :category %>
+            <%= f.text_field :category %><br>
 
-    <% end %>
-    <%= f.label :category %>
-    <%= f.text_field :category %><br>
+            <%= f.label :title%>
+            <%= f.text_field :title %><br>
 
-    <%= f.label :title%>
-    <%= f.text_field :title %><br>
+            <%= f.label :edition %>
+            <%= f.text_field :edition %><br>
 
-    <%= f.label :edition %>
-    <%= f.text_field :edition %><br>
+            <%= f.label :author%>
+            <%= f.text_field :author %><br>
 
-    <%= f.label :author%>
-    <%= f.text_field :author %><br>
+            <%= f.label :year_published%>
+            <%= f.text_field:year_published%><br>
 
-    <%= f.label :year_published%>
-    <%= f.text_field:year_published%><br>
+            <%= f.submit "Save" %><br>
 
-    <%= f.submit "Save" %><br>
-
-<% end %>
-<%= link_to 'Back', books_path%>
+        <% end %>
+    </div>
+    <%= link_to 'Back', books_path%>
+</div>
