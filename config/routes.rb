@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   resources :users
   resources :books
+  resources :account_activations, only: [:edit]
 end
