@@ -10,9 +10,13 @@
             <%= f.label :password%>
             <%= link_to "(Forgot password)", "#" %><br>
             <%= f.password_field :password%><br>
+            <%= f.label :remember_me, class: "checkbox inline" do %>
+                <%= f.check_box :remember_me %>
+                <span>Remember me on this computer</span>
+            <% end %>
+        <%= f.submit "Log in" %><br>
 
-            <%= f.submit "Log in" %><br>
-        <% end %>
+    <% end %>
     </div>
     <p> New user? <%= link_to "Register here!", new_user_path %></p>
 </div>
