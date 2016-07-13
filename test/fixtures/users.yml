@@ -1,6 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.htmlael:
 
 musa:
-  name: Just Example
-  email: just@example.com
-  password_digest: <%= User.digest('password') %>
+    name: Just Example
+    email: just@example.com
+    password_digest: <%= User.digest('password') %>
+    activated: true
+    activated_at: <%= Time.zone.now %>
+
+benard:
+    name: Benard Omondi
+    email: another@home.com
+    password_digest: <%= User.digest('password')%>
+    activated: true
+    activated_at: <%= Time.zone.now %>
+
+<% 3.times do |n| %>
+user_<%= n %>:
+    name: <%= "User #{n}" %>
+    email: <%= "user-#{n}@example.com" %>
+    password_digest: <%= User.digest('password') %>
+    activated: true
+    activated_at: <%= Time.zone.now %>
+ <% end %>
+
