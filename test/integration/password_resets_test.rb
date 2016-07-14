@@ -37,21 +37,21 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_select "input[name=email][type=hidden][value=?]", user.email
     # Invalid password & confirmation
     patch password_reset_path(user.reset_token),
-      email: user.email,
-     params:{ user: { password: "foobaz",
+     params: { email: user.email,
+      user: { password: "foobaz",
               password_confirmation: "barquux" }}
       # Blank password
       patch password_reset_path(user.reset_token),
-        email: user.email,
-        params: {user: { password: " ",
+       params:{ email: user.email,
+        user: { password: " ",
                 password_confirmation: "foobar" }}
         assert_not flash.empty?
         assert_template 'password_resets/edit'
         # Valid password & confirmation
         patch password_reset_path(user.reset_token),
-          email: user.email,
+          params: {email: user.email,
           user: { password: "foobaz",
-                  password_confirmation: "foobaz" }
+                  password_confirmation: "foobaz" }}
           assert is_logged_in?
           assert_not flash.empty?
           assert_redirected_to user
