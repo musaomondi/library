@@ -2,6 +2,7 @@ User.create!(name: "Just Example",
            email: "just@example.com",
            password:"1234567",
            password_confirmation: "1234567",
+           admin: true,
            activated: true,
            activated_at: Time.zone.now)
 9.times do |n|
