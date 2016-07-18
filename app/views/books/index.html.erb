@@ -1,9 +1,11 @@
 <% provide(:title, 'All books') %>
-<h1>Listing books</h1>
-<ul >
-<% if current_user.admin? %>
- <%= link_to 'New book', new_book_path%>
- <% end %>
+<div class="medium-6 columns medium-offset-3">
+    <h1>Listing books</h1>
+    <ul >
+        <% if current_user.admin? %>
+            <h5><%= link_to 'New book', new_book_path%></h5>
+        <% end %>
 
-    <%= render @books %>
-</ul>
+        <%= render @books %>
+    </ul>
+</div>
