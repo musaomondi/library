@@ -1,0 +1,13 @@
+
+<li>
+      <%= link_to book.title, book %>
+    <% if current_user.admin? %>
+        | <%= link_to "Delete", book, method: :delete,
+                                      data: { confirm: "You sure?"  } %>
+        | <%= link_to "Edit", edit_book_path(book) %>
+
+             <%else%>
+         |<%= link_to "Borrow", users_check_out_path %>
+    <% end %>
+</li>
+
