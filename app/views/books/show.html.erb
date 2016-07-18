@@ -1,0 +1,18 @@
+<% provide(:title, @book.title) %>
+<table border=1>
+    <tr>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Edition</th>
+        <th>Year Published</th>
+    </tr>
+
+        <tr>
+            <td><%= @book.category%></td>
+            <td><%= @book.title%></td>
+            <td><%= @book.author%></td>
+            <td><%= @book.edition%></td>
+            <td><%= @book.year_published%></td>
+        </tr>
+</table>
