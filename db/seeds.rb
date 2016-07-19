@@ -17,3 +17,16 @@ User.create!(name: "Just Example",
                activated_at: Time.zone.now)
 end
 
+20.times do
+  category =Faker::Book.genre
+  title=Faker::Book.title
+  author=Faker::Book.author
+  isbn=Faker::Code.isbn
+  available=Faker::Number.between(1, 500)
+  Book.create!(category: category, 
+               title: title, 
+               author: author, 
+               isbn: isbn, 
+               available: available)
+end
+
