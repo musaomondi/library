@@ -1,11 +1,9 @@
-<li>
-    <%= link_to book.title, book %>
+<tr>
+    <td><%= link_to book.title, book %></td>
+    <td><%= book.available %></td>
     <% if current_user.admin? %>
-        | <%= link_to "Delete", book, method: :delete,
-            data: { confirm: "You sure?"  } %>
-        | <%= link_to "Edit", edit_book_path(book) %>
-
-<%else%>
-    | <%= link_to "Borrow", users_check_out_path %>
-<% end %>
-</li>
+        <td><%= link_to "Delete", book, method: :delete,
+            data: { confirm: "You sure?"  } %></td>
+        <td><%= link_to "Edit", edit_book_path(book) %></td>
+    <% end %> 
+</tr>

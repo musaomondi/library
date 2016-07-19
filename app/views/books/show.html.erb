@@ -1,18 +1,9 @@
-<% provide(:title, @book.title) %>
-<table border=1>
-    <tr>
-        <th>Category</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Edition</th>
-        <th>Year Published</th>
-    </tr>
-
-        <tr>
-            <td><%= @book.category%></td>
-            <td><%= @book.title%></td>
-            <td><%= @book.author%></td>
-            <td><%= @book.edition%></td>
-            <td><%= @book.year_published%></td>
-        </tr>
-</table>
+<div class="medium-6 columns medium-offset-3">
+    <% provide(:title, @book.title) %>
+    <p><b>Category:</b>  <%= @book.category%></p>
+    <p><b>Title:</b>  <%= @book.title%></p>
+    <p><b>Author:</b> <%= @book.author%></p>
+    <p><b>Isbn:</b> <%= @book.isbn%></p>
+    <p><b>Copies vailable:</b> <%= @book.available%></p>
+    <%= link_to "Back", books_path %>
+</div>
