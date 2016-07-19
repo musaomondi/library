@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
-  get 'password_resets/new'
-
+  resources :books_on_loans
+   get 'password_resets/new'
   get 'password_resets/edit'
 
   root 'static_pages#home'
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  post 'borrow' => 'books#borrow'
+  post 'return' => 'books#return'
   resources :users
   resources :books
   resources :account_activations, only: [:edit]
