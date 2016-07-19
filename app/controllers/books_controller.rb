@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
- before_action :logged_in_user, only: [:show, :index] 
- before_action :admin, only:  [:create, :new, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show, :index] 
+  before_action :admin, only:  [:create, :new, :edit, :update, :destroy]
   def new
     @book = Book.new
   end
@@ -36,10 +36,25 @@ class BooksController < ApplicationController
 
     redirect_to books_path
   end
-
+  def borrow
+    @book = Book.find_by(title: params[:title])
+    if @book == nil
+      flash[:notice] = 'This book is not in the library.'
+    elsif @book.available == 0
+      flash[:notice]= 'This book is unavailable.'
+    else
+      @book.available = 1
+      @book.save
+      @books_loaned = BooksOnLoan.create(book_id: @book.id, user_id: @user.id)
+      @books_loaned.save
+      flash[:success] = 'The book was checked out.'
+    end
+  end
+  def return
+  end
   private
   def book_params
-    params.require(:book).permit(:category, :title, :edition, :author, :year_published)
+    params.require(:book).permit(:category, :title, :author, :isbn, :available)
   end
   def admin
     redirect_to(books_path) unless current_user.admin?
