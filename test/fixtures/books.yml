@@ -3,13 +3,13 @@
 one:
   category: MyString
   title: MyString
-  edition: MyString
   author: MyString
-  year_published: 1
+  isbn: MyString
+  available: 1
 
 two:
   category: MyString
   title: MyString
-  edition: MyString
   author: MyString
-  year_published: 1
+  isbn: MyString
+  available: 1

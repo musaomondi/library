@@ -3,9 +3,9 @@ class CreateBooks < ActiveRecord::Migration[5.0]
     create_table :books do |t|
       t.string :category
       t.string :title
-      t.string :edition
       t.string :author
-      t.integer :year_published
+      t.string :isbn
+      t.integer :available
 
       t.timestamps
     end

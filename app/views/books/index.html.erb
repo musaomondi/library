@@ -1,36 +1,18 @@
 <% provide(:title, 'All books') %>
-<div class="row">
-    <div class="medium-6 columns">
-        <h1>Listing books</h1>
-        <% if current_user.admin? %>
-            <h5><%= link_to 'New book', new_book_path%></h5>
-        <% end %>
-        <table border=1>
-            <tr>
-                <th>Title</th>
-                <th>Available copies</th>
-                <% if current_user.admin? %>
-                    <th></th>
-                    <th></th>
-                <% end %>
-            </tr>
-            <%= render @books %>
-        </table>
-    </div>
-    <div class="medium-3 columns">
-        <h1>Borrow</h1>
-        <%= form_for :book, url: {action: :borrow} do |f| %>
-            <%= f.label :title %>
-            <%= f.text_field :title %>
-            <%= f.submit "Borrow" %> 
-        <% end %>
-    </div>
-    <div class="medium-3 columns">
-        <h1>Return</h1>
-        <%= form_for :book, url: {action: :return} do |f| %>
-            <%= f.label :title%>
-            <%= f.text_field :title %>
-            <%= f.submit "Return" %>   
-        <% end %>
-    </div>
+<div class="medium-6 columns medium-offset-3">
+    <h1>Listing books</h1>
+    <% if current_user.admin? %>
+        <h5><%= link_to 'New book', new_book_path%></h5>
+    <% end %>
+    <table border=1>
+        <tr>
+            <th>Title</th>
+            <th>Available copies</th>
+            <% if current_user.admin? %>
+                <th></th>
+                <th></th>
+            <% end %>
+        </tr>
+        <%= render @books %>
+    </table>
 </div>

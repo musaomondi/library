@@ -1,0 +1,23 @@
+<h1>Librarian List Books On Loan</h1>
+<table>
+    <tr>
+        <th>Author</th>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Borrower Name</th>
+        <th>Borrower Email</th>
+    </tr>
+    
+    <% for item in @books_loaned %>
+        <tr>
+            <td><%= item.book.author %></td>
+            <td><%= item.book.title %></td>
+            <td><%= item.book.isbn %></td>
+            <td><%= item.borrower.name %></td>
+            <td><%= item.borrower.email %></td>     
+        </tr>
+    <% end %>
+</table>
+
+<br />
+<%= link_to 'Back', librarian_index_path %>
