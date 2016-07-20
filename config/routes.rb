@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  post 'borrow' => 'books#borrow'
+  get 'borrow' => 'books#borrow'
   post 'return' => 'books#return'
   resources :users
   resources :books

@@ -14,7 +14,7 @@ class BooksController < ApplicationController
     end
   end
   def index
-    @books = Book.all
+    @books = Book.where("available > 0")
   end
   def show
     @book = Book.find(params[:id])
@@ -37,18 +37,12 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
   def borrow
-    @book = Book.find_by(title: params[:title])
-    if @book == nil
-      flash[:notice] = 'This book is not in the library.'
-    elsif @book.available == 0
-      flash[:notice]= 'This book is unavailable.'
-    else
-      @book.available = 1
-      @book.save
-      @books_loaned = BooksOnLoan.create(book_id: @book.id, user_id: @user.id)
-      @books_loaned.save
-      flash[:success] = 'The book was checked out.'
-    end
+    # debugger
+    @book = Book.find_by(id: params[:id])
+    @books_loaned = BooksOnLoan.create(id: @book.id)
+    @books_loaned.save
+    flash[:success] = "Request for #{@book.title} was successful."
+    redirect_to books_path
   end
   def return
   end
