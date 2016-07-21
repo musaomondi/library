@@ -1,11 +1,13 @@
 <% provide(:title, 'All books') %>
-<div class="medium-6 columns medium-offset-3">
+<div class="medium-8 columns medium-offset-2">
     <h1>Listing books</h1>
     <% if current_user.admin? %>
         <h5><%= link_to 'New book', new_book_path%></h5>
+        <h5><%= link_to 'Books Requested', leases_path %>
     <% end %>
     <table border=1>
         <tr>
+            <th>ID</th>
             <th>Title</th>
             <th>Available copies</th>
             <% if current_user.admin? %>

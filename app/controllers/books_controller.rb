@@ -36,16 +36,6 @@ class BooksController < ApplicationController
 
     redirect_to books_path
   end
-  def borrow
-    # debugger
-    @book = Book.find_by(id: params[:id])
-    @books_loaned = BooksOnLoan.create(id: @book.id)
-    @books_loaned.save
-    flash[:success] = "Request for #{@book.title} was successful."
-    redirect_to books_path
-  end
-  def return
-  end
   private
   def book_params
     params.require(:book).permit(:category, :title, :author, :isbn, :available)

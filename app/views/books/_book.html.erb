@@ -1,11 +1,16 @@
 <tr>
+    <td> <%= book.id %></td>
     <td><%= link_to book.title, book %></td>
     <td><%= book.available %></td>
     <% if current_user.admin? %>
         <td><%= link_to "Delete", book, method: :delete,
-            data: { confirm: "You sure?"  } %></td>
+            data: { confirm: "You sure?"} %></td>
         <td><%= link_to "Edit", edit_book_path(book) %></td>
     <% else %>
-      <td><%= link_to "borrow", borrow_path(id: book.id) %></td>
+        <td> <%= form_for current_user.leases.build do |f| %>
+        <%= f.hidden_field :book_id, value: book.id %>
+        <%= f.hidden_field :user_id %>
+        <%= f.submit "borrow"%></td>
+            <% end %>
     <% end %> 
 </tr>

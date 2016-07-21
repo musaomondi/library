@@ -1,0 +1,56 @@
+<% provide(:title, 'Books requested') %>
+<div class="row">
+    <div class="medium-6 columns ">
+        <h1>Books Requested</h1>
+        <table>
+            <tr>
+                <th>Author</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th></th>
+            </tr>
+
+            <% @requests.each do |ite|%>
+                <tr>
+                    <td><%= ite.book.author %></td>
+                    <td><%= ite.book.title %></td>
+                    <td><%= ite.book.isbn %></td>
+                    <td><%= ite.user.name %></td>
+                    <td><%= ite.user.email %></td>
+                    <td> <%= link_to "Accept", accept_path(book_id: ite.id, 
+                                                           status: "borrowed"), 
+                                                           class: "button"%>
+            </tr>
+        <% end %>
+        </table>
+        <%= link_to 'Back', books_path %>
+    </div>
+
+    <div class="medium-6 columns" >
+        <h1>Books Borrowed</h1>
+        <table>
+            <tr>
+                <th>Author</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th></th>
+            </tr>
+
+            <% @accepts.each do |item|%>
+                <tr>
+                    <td><%= item.book.author %></td>
+                    <td><%= item.book.title %></td>
+                    <td><%= item.book.isbn %></td>
+                    <td><%= item.user.name %></td>
+                    <td><%= item.user.email %></td>     
+                    <%# <td> <%= link_to "Return", lease, method: :delete, data: {confirm: "You want to return?"}%> %>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
+
