@@ -1,24 +1,31 @@
-<div class="medium-6 columns medium-offset-3">
-    <% provide(:title, 'Edit user')%>
-    <h1>Update your profile</h1>
-    <div class="callout">
-        <%= form_for(@user) do |f| %>
-            <%= render 'shared/error_messages'%>
-            <%= f.label :name %>
-            <%= f.text_field :name %><br>
+<% provide(:title, 'Edit user')%>
+<div class= "row">
+    <div class="medium-3 columns">
+        <%= render 'users/profile' %>
+    </div>
+    <div class="medium-6 columns medium-offset-0.5 columns">
+        <h1>Update your profile</h1>
+        <div class="callout">
+            <%= form_for(@user) do |f| %>
+                <%= render 'shared/error_messages'%>
+                <%= f.label :name %>
+                <%= f.text_field :name %><br>
 
-            <%= f.label :email%>
-            <%= f.email_field :email %><br>
+                <%= f.label :email%>
+                <%= f.email_field :email %><br>
 
-            <%= f.label :password%>
-            <%= f.password_field :password%><br>
+                <%= f.label :password%>
+                <%= f.password_field :password%><br>
 
-            <%= f.label :password_confirmation%>
-            <%= f.password_field :password_confirmation%><br>
+                <%= f.label :password_confirmation%>
+                <%= f.password_field :password_confirmation%><br>
 
-            <%= f.submit "save changes" %><br>
+                <%= f.submit "save changes" %><br>
 
-        <% end %>
+            <% end %>
+        </div>
+    </div>
+    <div >
     </div>
 </div>
 
