@@ -1,0 +1,9 @@
+<%= gravatar_for @user %><br>
+<%=@user.name %><br>
+<%= @user.email %><br><br>
+<h5><%= link_to "Edit Profile", edit_user_path(current_user) %></h5>
+<% if current_user.admin? %>
+    <h5><%= link_to 'Add New book', new_book_path %></h5>
+    <h5><%= link_to 'Books Requested', leases_path %></h5>
+<% end %>
+
