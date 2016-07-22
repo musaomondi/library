@@ -8,19 +8,29 @@ class LeasesController < ApplicationController
   end
   def create
     @lease = Lease.new(lease_params)
-    if @lease.save
-      flash[:success] = "Request for #{@lease.book.title} was successful."
+    begin
+      if @lease.save
+        flash[:success] = "Request for #{@lease.book.title} was successful."
+        redirect_to books_path
+      else
+        flash[:danger] = "Error in borrowing this book"
+        redirect_to books_path
+      end
+    rescue
+      flash[:info] ="You can't borrow same book twice"
       redirect_to books_path
     end
   end
   def accept
     @lease = Lease.find(params[:book_id])
+    book = Book.find(@lease.book_id)
+    book.accept.save
     @lease.update_attribute(:status, params[:status])
     flash[:success] = "You've accepted request for #{@lease.book.title} "
     redirect_to leases_path
   end
   def destroy
-    @lease = Lease.find(params[:id])
+    @lease = Lease.find(params[:id]).destroy
     book = Book.find(@lease.book_id)
     book.return.save
     flash[:success]="Book returned"
