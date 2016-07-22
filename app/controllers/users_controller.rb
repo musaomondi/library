@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
-    if @user.save
+    if verify_recaptcha(model: @user) && @user.save
       UserMailer.account_activation(@user).deliver_now
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find_by(id: params[:id])
-   @book = Book.find_by(id: params[:id])
+    @books = Book.where("available > 0")
   end
 
   def edit
