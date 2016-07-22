@@ -9,8 +9,5 @@ class CreateLeases < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :leases, :book_id
-    add_index :leases, :user_id
-    add_index :leases, [:book_id, :user_id], unique: true
   end
 end
