@@ -1,3 +1,24 @@
 <% provide(:title, @user.name) %>
-<%=@user.name %>
-<%= @user.email %>
+<div class= "row">
+    <div class="medium-2 columns">
+        <%= render 'users/profile' %>
+    </div>
+    <div class="medium-8 columns">
+        <h1>Listing books</h1>
+        <table border=1>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Available copies</th>
+                <% if current_user.admin? %>
+                    <th></th>
+                    <th></th>
+                <% end %>
+            </tr>
+            <%= render @books %>
+        </table>
+    </div>
+    <div >
+    </div>
+</div>
+
