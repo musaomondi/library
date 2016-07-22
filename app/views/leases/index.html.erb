@@ -12,19 +12,19 @@
                 <th></th>
             </tr>
 
-            <% @requests.each do |ite|%>
+            <% @requests.each do |accept|%>
                 <tr>
-                    <td><%= ite.book.author %></td>
-                    <td><%= ite.book.title %></td>
-                    <td><%= ite.book.isbn %></td>
-                    <td><%= ite.user.name %></td>
-                    <td><%= ite.user.email %></td>
-                    <td> <%= link_to "Accept", accept_path(book_id: ite.id, 
-                                                           status: "borrowed"), 
-                                                           class: "button"%>
+                    <td><%= accept.book.author %></td>
+                    <td><%= accept.book.title %></td>
+                    <td><%= accept.book.isbn %></td>
+                    <td><%= accept.user.name %></td>
+                    <td><%= accept.user.email %></td>     
+                    <td> <%= link_to "Accept", accept_path(book_id: accept.id, status: "borrowed"), class: "button"%>
             </tr>
         <% end %>
         </table>
+
+        <br />
         <%= link_to 'Back', books_path %>
     </div>
 
@@ -40,14 +40,14 @@
                 <th></th>
             </tr>
 
-            <% @accepts.each do |item|%>
+            <% @accepts.each do |lease|%>
                 <tr>
-                    <td><%= item.book.author %></td>
-                    <td><%= item.book.title %></td>
-                    <td><%= item.book.isbn %></td>
-                    <td><%= item.user.name %></td>
-                    <td><%= item.user.email %></td>     
-                    <%# <td> <%= link_to "Return", lease, method: :delete, data: {confirm: "You want to return?"}%> %>
+                    <td><%= lease.book.author %></td>
+                    <td><%= lease.book.title %></td>
+                    <td><%= lease.book.isbn %></td>
+                    <td><%= lease.user.name %></td>
+                    <td><%= lease.user.email %></td>     
+                    <td> <%= link_to "Return",lease , method: :delete, data: {confirm: "You want to return?"}, class: "button"%>
                 </tr>
             <% end %>
         </table>
