@@ -10,7 +10,7 @@
         <td> <%= form_for current_user.leases.build do |f| %>
         <%= f.hidden_field :book_id, value: book.id %>
         <%= f.hidden_field :user_id %>
-        <%= f.submit "borrow"%></td>
+        <%= f.submit "borrow", class: "button"%></td>
             <% end %>
     <% end %> 
 </tr>
