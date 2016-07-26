@@ -43,10 +43,10 @@
                     <td><%= lease.book.title %></td>
                     <td><%= lease.book.isbn %></td>
                     <td><%= lease.user.name %></td>
-                    <td><%= lease.user.email %></td>     
-                    <td> <%= lease.due_date = 2.weeks.from_now.strftime("%d %b")%>
+                    <td><%= lease.user.email %></td>
+                    <td> <%= remaining_days(lease) %></td>
                     <td> <%= link_to "Return",lease , method: :delete, data: {confirm: "You want to return?"}, class: "button"%>
-                </tr>
-            <% end %>
+            </tr>
+        <% end %>
         </table>
 
