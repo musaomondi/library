@@ -101,3 +101,14 @@ div {
 label {
   display: block;
 }
+#message.notice{
+   background-color:blue;
+}
+
+#message.danger{
+    background-color:red;
+ }
+#message.success{
+    background-color:green;
+
+}
