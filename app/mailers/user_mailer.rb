@@ -19,4 +19,8 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "Password reset"
   end
+  def accept(user)
+    @user=user
+    mail to: user.email, subject: "Request accepted"
+  end
 end

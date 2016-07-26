@@ -44,6 +44,9 @@ class User < ApplicationRecord
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
   end
+  def send_acceptance_email
+    UserMailer.accept(self).deliver_now
+  end
   def create_reset_digest
     self.reset_token = User.new_token
     update_attribute(:reset_digest, User.digest(reset_token))

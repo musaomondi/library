@@ -31,6 +31,8 @@ class LeasesController < ApplicationController
     book = Book.find(@lease.book_id)
     book.accept.save
     @lease.update_attribute(:status, params[:status])
+    @user = User.find_by(id: @lease.user_id)
+    @user.send_acceptance_email
     flash[:success] = "You've accepted request for #{@lease.book.title} "
     redirect_to leases_path
   end
