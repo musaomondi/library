@@ -14,7 +14,11 @@ class BooksController < ApplicationController
     end
   end
   def index
+    if params[:search]
+      @books = Book.search(params[:search]).order("id")
+    else
     @books = Book.where("available > 0")
+    end
   end
   def show
     @book = Book.find(params[:id])

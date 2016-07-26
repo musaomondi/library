@@ -1,6 +1,10 @@
 <% provide(:title, 'All books') %>
 <div class="medium-8 columns medium-offset-2">
     <h1>Listing books</h1>
+    <%= form_tag books_path, method: :get do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+        <% end %>
     <% if current_user.admin? %>
         <h5><%= link_to 'New book', new_book_path%></h5>
         <h5><%= link_to 'Books Requested', leases_path %>
@@ -9,6 +13,8 @@
         <tr>
             <th>ID</th>
             <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
             <th>Available copies</th>
             <% if current_user.admin? %>
                 <th></th>

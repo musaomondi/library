@@ -13,4 +13,7 @@ class Book < ApplicationRecord
   def return
     increment(:available, 1)
   end
+  def self.search(search)
+    where("title like?"||"author like?"||"category like?", "%#{search}%")
+  end
 end
