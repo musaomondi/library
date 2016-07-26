@@ -12,11 +12,9 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
                 <th>Available copies</th>
-                <% if current_user.admin? %>
-                    <th></th>
-                    <th></th>
-                <% end %>
             </tr>
             <%= render @books %>
         </table>
