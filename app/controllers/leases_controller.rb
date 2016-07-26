@@ -1,10 +1,15 @@
 class LeasesController < ApplicationController
+  # before_action :admin_user, only: [:destroy, :index]
   def index
     @requests = Lease.requested
     @accepts = Lease.borrowed
   end
   def new
     @lease = Lease.new
+  end
+  def show
+    @user=User.find(params[:id])
+    @accepts = @user.leases.borrowed
   end
   def create
     @lease = Lease.new(lease_params)
@@ -22,7 +27,7 @@ class LeasesController < ApplicationController
     end
   end
   def accept
-    @lease = Lease.find(params[:book_id])
+    @lease = Lease.find(params[:lease_id])
     book = Book.find(@lease.book_id)
     book.accept.save
     @lease.update_attribute(:status, params[:status])
@@ -30,11 +35,11 @@ class LeasesController < ApplicationController
     redirect_to leases_path
   end
   def destroy
-    @lease = Lease.find(params[:id]).destroy
-    book = Book.find(@lease.book_id)
-    book.return.save
-    flash[:success]="Book returned"
-    redirect_to leases_path
+      @lease = Lease.find(params[:id]).destroy
+      book = Book.find(@lease.book_id)
+      book.return.save
+      flash[:success]="Book returned"
+      redirect_to leases_path
   end
   private
   def lease_params
