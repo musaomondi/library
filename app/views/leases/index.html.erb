@@ -17,7 +17,7 @@
                     <td><%= accept.book.isbn %></td>
                     <td><%= accept.user.name %></td>
                     <td><%= accept.user.email %></td>     
-                    <td> <%= link_to "Accept", accept_path(book_id: accept.id, status: "borrowed"), class: "button"%>
+                    <td> <%= link_to "Accept", accept_path(lease_id: accept.id, status: "borrowed"), class: "button"%>
             </tr>
         <% end %>
         </table>

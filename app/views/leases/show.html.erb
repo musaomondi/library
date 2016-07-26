@@ -1,0 +1,22 @@
+<div class="medium-8 columns medium-offset-2">
+    <h1>Books Borrowed</h1>
+    <table>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Due Date</th>
+            <th></th>
+        </tr>
+
+        <% @accepts.each do |lease|%>
+            <tr>
+                <td><%= lease.book.author %></td>
+                <td><%= lease.book.title %></td>
+                <td><%= lease.book.isbn %></td>
+                <td> <%= remaining_days(lease) %>
+        </tr>
+    <% end %>
+    </table>
+</div>
+
