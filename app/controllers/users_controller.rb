@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserMailer.account_activation(@user).deliver_now
+      log_in @user
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
@@ -22,8 +23,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @books = Book.where("available > 0")
-   # @lease = Lease.where("status==1")
-    @borrowed = Lease.borrowed
+   @lease = @user.leases.borrowed
   end
 
   def edit
