@@ -5,7 +5,10 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(name: params[:session][:name])
     if user && user.authenticate(params[:session][:password])
-      if user.activated?
+      if !user.activated? && user.created_at < 2.days.ago
+        flash[:warning] = "Please, activate your account to continue using app."
+        redirect_to root_url
+      elsif user.activated?
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         redirect_back_or user
