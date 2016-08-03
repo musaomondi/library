@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(name: params[:session][:name])
     if user && user.authenticate(params[:session][:password])
-      if !user.activated? && user.created_at < 2.days.ago
+      if !user.activated? && user.created_at < 5.minutes.ago
         flash[:warning] = "Please, activate your account to continue using app."
         redirect_to root_url
       elsif user.activated?

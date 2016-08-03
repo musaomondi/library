@@ -3,11 +3,14 @@
     <div class="medium-2 columns">
         <%= render 'users/profile' %>
         <% if !current_user.admin? %>
-        <%= render 'users/stat' %>
+            <%= render 'users/stat' %>
         <% end %>
     </div>
     <div class="medium-8 columns">
-        <h1>Listing books</h1>
+        <h4>Available books</h4>
+        <div class="medium-6 columns">
+            <%= render 'books/search' %>
+        </div>
         <table border=1>
             <tr>
                 <th>ID</th>
@@ -19,7 +22,7 @@
             <%= render @books %>
         </table>
     </div>
-    <div >
+    <div>
     </div>
 </div>
 

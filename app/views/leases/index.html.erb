@@ -1,52 +1,53 @@
 <% provide(:title, 'Books requested') %>
-        <h1>Books Requested</h1>
-        <table border=1>
+<div class="medium-8 columns medium-offset-2">
+    <h4>Books Requested</h4>
+    <table border=1>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>User Name</th>
+            <th>User Email</th>
+            <th></th>
+        </tr>
+
+        <% @requests.each do |accept|%>
             <tr>
-                <th>Author</th>
-                <th>Title</th>
-                <th>ISBN</th>
-                <th>User Name</th>
-                <th>User Email</th>
-                <th></th>
-            </tr>
+                <td><%= accept.book.author %></td>
+                <td><%= accept.book.title %></td>
+                <td><%= accept.book.isbn %></td>
+                <td><%= accept.user.name %></td>
+                <td><%= accept.user.email %></td>     
+                <td> <%= link_to "Accept", accept_path(lease_id: accept.id, status: "borrowed"), class: "button"%>
+        </tr>
+    <% end %>
+    </table>
 
-            <% @requests.each do |accept|%>
-                <tr>
-                    <td><%= accept.book.author %></td>
-                    <td><%= accept.book.title %></td>
-                    <td><%= accept.book.isbn %></td>
-                    <td><%= accept.user.name %></td>
-                    <td><%= accept.user.email %></td>     
-                    <td> <%= link_to "Accept", accept_path(lease_id: accept.id, status: "borrowed"), class: "button"%>
-            </tr>
-        <% end %>
-        </table>
+    <br />
 
-        <br />
-        <%= link_to 'Back', books_path %>
+    <h4>Books Borrowed</h4>
+    <table>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>User Name</th>
+            <th>User Email</th>
+            <th>Due Date</th>
+            <th></th>
+        </tr>
 
-        <h1>Books Borrowed</h1>
-        <table>
+        <% @accepts.each do |lease|%>
             <tr>
-                <th>Author</th>
-                <th>Title</th>
-                <th>ISBN</th>
-                <th>User Name</th>
-                <th>User Email</th>
-                <th>Due Date</th>
-                <th></th>
-            </tr>
-
-            <% @accepts.each do |lease|%>
-                <tr>
-                    <td><%= lease.book.author %></td>
-                    <td><%= lease.book.title %></td>
-                    <td><%= lease.book.isbn %></td>
-                    <td><%= lease.user.name %></td>
-                    <td><%= lease.user.email %></td>
-                    <td> <%= remaining_days(lease) %></td>
-                    <td> <%= link_to "Return",lease , method: :delete, data: {confirm: "You want to return?"}, class: "button"%>
-            </tr>
-        <% end %>
-        </table>
-
+                <td><%= lease.book.author %></td>
+                <td><%= lease.book.title %></td>
+                <td><%= lease.book.isbn %></td>
+                <td><%= lease.user.name %></td>
+                <td><%= lease.user.email %></td>
+                <td> <%= remaining_days(lease) %></td>
+                <td> <%= link_to "Return",lease , method: :delete, data: {confirm: "You want to return?"}, class: "button"%>
+        </tr>
+    <% end %>
+    </table>
+    <%= link_to 'Back', books_path %>
+</div>
