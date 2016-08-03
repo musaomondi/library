@@ -14,6 +14,6 @@ class Book < ApplicationRecord
     increment(:available, 1)
   end
   def self.search(search)
-    where("title like?"||"author like?"||"category like?", "%#{search}%")
+    where("title like? OR author like? OR category like?", "%#{search}%", "%#{search}%","%#{search}%")
   end
 end
