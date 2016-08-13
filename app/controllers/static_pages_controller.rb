@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
+    @user = current_user
+    @books =Book.all
   end
 
   def help
