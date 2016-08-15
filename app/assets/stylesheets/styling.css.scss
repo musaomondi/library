@@ -4,7 +4,6 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 15px;
   line-height: 18px;
-  margin: 33px;
 }
 
 p, ol, ul, td {
@@ -32,83 +31,82 @@ a {
     background-color: black;
   }
 }
-img {
-        width: 100%;
-        height: 100px;
-
-}
+// img {
+//         width: relative;
+//         height: relative;
+// }
 
 th {
   padding-bottom: 5px;
 }
 
-td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
+// td {
+//   padding-bottom: 7px;
+//   padding-left: 5px;
+//   padding-right: 5px;
+// }
 
-div {
-  .field, &.actions {
-    margin-bottom: 10px;
-  }
-}
-.button{
-     margin-bottom: 0px;
-     margin-top: 0px;
-}
-#example-menu{
-    padding: 0px;
-    border-right-width: 0px;
-    border-right-style: solid;
-}
+// div {
+//   .field, &.actions {
+//     margin-bottom: 10px;
+//   }
+// }
+// .button{
+//      margin-bottom: 0px;
+//      margin-top: 0px;
+// }
+// #example-menu{
+//     padding: 0px;
+//     border-right-width: 0px;
+//     border-right-style: solid;
+// }
 
-#notice {
-  color: green;
-}
+// #notice {
+//   color: green;
+// }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
+// .field_with_errors {
+//   padding: 2px;
+//   background-color: red;
+//   display: table;
+// }
 
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: white;
+// #error_explanation {
+//   width: 450px;
+//   border: 2px solid red;
+//   padding: 7px;
+//   padding-bottom: 0;
+//   margin-bottom: 20px;
+//   background-color: white;
 
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0;
-    background-color: #c00;
-    color: #fff;
-  }
+//   h2 {
+//     text-align: left;
+//     font-weight: bold;
+//     padding: 5px 5px 5px 15px;
+//     font-size: 12px;
+//     margin: -7px;
+//     margin-bottom: 0;
+//     background-color: #c00;
+//     color: #fff;
+//   }
 
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
+//   ul li {
+//     font-size: 12px;
+//     list-style: square;
+//   }
+// }
 
-label {
-  display: block;
-}
-#message.notice{
-   background-color:blue;
-}
+// label {
+//   display: block;
+// }
+// #message.notice{
+//    background-color:blue;
+// }
 
-#message.danger{
-    background-color:red;
- }
-#message.success{
-    background-color:green;
+// #message.danger{
+//     background-color:red;
+//  }
+// #message.success{
+//     background-color:green;
 
-}
+// }
