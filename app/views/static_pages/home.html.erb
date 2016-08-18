@@ -3,9 +3,9 @@
     <div class= "row">
         <div class="medium-2 columns">
             <%= render 'users/profile' %>
-            <% if !current_user.admin? %>
-                <%= render 'users/stat' %>
-            <% end %>
+            <%# <% if !current_user.admin? %1> %>
+            <%#     <%= render 'users/stat' %1> %>
+            <%# <% end %1> %>
         </div>
         <div class="medium-8 columns">
             <h4>Available books</h4>
@@ -51,18 +51,29 @@
         <p>This is where you can get all books you need in a much quicker way than ever before</p>
         Want to be a member?  <%= link_to "Register now!", new_user_path(@user), class: "button" %><br>
     </div>
-    <div class="row medium-12 columns">
-        <div class="medium-3 columns ">
-            <%= image_tag("college-campus-lib.jpg") %>
+    <div >
+        <%= image_tag("college-campus-lib.jpg") %>
+    </div>
+    <div class="row" id="form">
+        <div class="medium-4 columns" align="center">
+            <h3>Vision</h3>
+            To provide facilities for education and research, participate in the discovery, creation, transmission, 
+            preservation, enhancement and to harness acquired knowledge on behalf of the University.
         </div>
-        <div class="medium-3 columns ">
-            <%= image_tag("college-campus-lib.jpg") %>
+        <div class="medium-4 columns" align="center">
+            <h3>Mission</h3>
+            To provide Library and information services through acquisition, processing, presenting, 
+            disseminating and making available relevant literature to all its users
         </div>
-        <div class="medium-3 columns ">
-            <%= image_tag("college-campus-lib.jpg") %>
-        </div>
-        <div class="medium-3 columns ">
-            <%= image_tag("college-campus-lib.jpg") %>
+        <div class="medium-4 columns" align="center">
+            <h3>Objectives</h3>
+            <ul class="no-bullet">
+                <li> Build, maintain and sustain Library’s resources</li>
+                <li> Provide adequate reading space for Library users</li>
+                <li>Acquire and conserve Library research materials</li>
+                <li> Provide information and relevant data for the curriculum at the university</li>
+            </ul>
         </div>
     </div>
+
 <% end %>
