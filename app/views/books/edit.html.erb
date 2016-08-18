@@ -1,6 +1,5 @@
-
 <% provide(:title, 'Edit Book')%>
-<div class="medium-6 columns medium-offset-3">
+<div class="row medium-6 columns medium-offset-3" id="form">
     <h1>Edit Book</h1>
     <div class="callout">
         <%= form_for :book, url: book_path(@book), method: :patch do |f| %>
@@ -35,5 +34,5 @@
 
         <% end %>
     </div>
-    <%= link_to 'Back', books_path%>
+    <%= link_to 'Cancel', user_path(current_user)%>
 </div>
