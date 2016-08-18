@@ -1,3 +1,28 @@
 <% provide(:title, "Contact") %>
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+<div class="row ">
+    <div class="medium-4 columns">
+        <h4>Contact University Librarian</h4>
+        <%=image_tag("ochoggia.png")  %>
+        <ul class="no-bullet">
+            <li>Mr. Raymond Euppa Ochoggia</li>
+            <li>The University Librarian</li>
+            <li>P.O. Box Private Bag, Maseno - Kenya</li>
+            <li>Tel. +254 57 35162022</li>
+            <li>Fax +254 57 351221</li>
+            <li>Mobile 0722253309</li>
+            <li>Email.reochoggia@yahoo.com, rochoggia@maseno.ac.ke</li>
+        </ul>
+    </div>
+    <div class="medium-6 columns" id="form">
+        <h5>You can also leave as a message to help us serve you better<h5>
+                <div class="callout">
+                    <%= form_for([@user.messages.build], remote: true) do |f| %>
+                    <%= render 'shared/error_messages', object: f.object %>
+                        <%= f.text_field :title, placeholder: "message title" %>
+                        <%= f.text_area :description, placeholder: "message description" %>
+                        <%= f.hidden_field :user_id %>
+                        <%= f.submit "send message", class: "button"%></td>
+                <% end %>
+                </div>
+    </div>
+</div>
