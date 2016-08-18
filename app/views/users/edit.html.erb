@@ -3,8 +3,8 @@
     <div class="medium-3 columns">
         <%= render 'users/profile' %>
     </div>
-    <div class="medium-6 columns medium-offset-0.5 columns">
-        <h1>Update your profile</h1>
+    <div class="medium-6 columns medium-offset-0.5 columns" id="form">
+        <h3 align="center">Update your profile</h3>
         <div class="callout">
             <%= form_for(@user) do |f| %>
                 <%= render 'shared/error_messages'%>

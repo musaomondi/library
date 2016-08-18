@@ -1,8 +1,8 @@
-<div class="medium-6 columns medium-offset-3">
+<div class="row medium-6 columns medium-offset-3" id="form">
     <% provide(:title, "Reset password")%>
     <h1>Reset password</h1>
     <div class="callout">
-        <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %><`0`>
+        <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
             <%= render 'shared/error_messages' %>
             <%= hidden_field_tag :email, @user.email %>
             <%= f.label :password %>

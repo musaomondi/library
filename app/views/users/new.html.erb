@@ -1,23 +1,15 @@
-<div class="medium-6 columns medium-offset-3">
+<div class="row medium-4 columns medium-offset-4" id="form" align="center">
     <% provide(:title, 'Register')%>
     <h1>Register</h1>
     <div class="callout">
         <%= form_for(@user) do |f| %>
             <%= render 'shared/error_messages'%>
-            <%= f.label :name %>
-            <%= f.text_field :name %><br>
-
-            <%= f.label :email%>
-            <%= f.email_field :email %><br>
-
-            <%= f.label :password%>
-            <%= f.password_field :password%><br>
-
-            <%= f.label :password_confirmation%>
-            <%= f.password_field :password_confirmation%><br>
+            <%= f.text_field :name, placeholder: "Enter name" %><br>
+            <%= f.email_field :email, placeholder: "Enter email" %><br>
+            <%= f.password_field :password, placeholder: "Enter password"%><br>
+            <%= f.password_field :password_confirmation, placeholder: "confirm password"%><br>
             <%# <%= recaptcha_tags %1> %>
-
-            <%= f.submit "Register" %><br>
+            <%= f.submit "Register", class: "button" %><br>
 
         <% end %>
     </div>
