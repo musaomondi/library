@@ -11,5 +11,6 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
+    @user = current_user
   end
 end
