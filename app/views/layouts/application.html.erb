@@ -10,14 +10,8 @@
 
     <body>
         <%= render 'layouts/header' %>
-        <div class="container">
-            <% flash.each do |message_type, message| %>
-                <div id="message" class="callout small<%=message_type %>"><%=message %></div>
-            <% end %>
-        </div>
-        <div>
-            <%= yield %>
-        </div>
+        <%= render "layouts/callouts" %>
+        <%= yield %>
         <%= render 'layouts/footer' %>
     </body>
 </html>
