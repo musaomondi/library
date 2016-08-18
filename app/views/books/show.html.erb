@@ -1,9 +1,9 @@
-<div class="medium-6 columns medium-offset-3">
+<div class="row medium-6 columns medium-offset-3" id ="form">
     <% provide(:title, @book.title) %>
     <p><b>Category:</b>  <%= @book.category%></p>
     <p><b>Title:</b>  <%= @book.title%></p>
     <p><b>Author:</b> <%= @book.author%></p>
     <p><b>Isbn:</b> <%= @book.isbn%></p>
     <p><b>Copies vailable:</b> <%= @book.available%></p>
-    <%= link_to "Back", books_path %>
+    <%= link_to "Back", user_path(current_user) %>
 </div>
