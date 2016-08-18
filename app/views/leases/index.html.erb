@@ -1,5 +1,5 @@
 <% provide(:title, 'Books requested') %>
-<div class="medium-8 columns medium-offset-2">
+<div class="row medium-8 columns medium-offset-2" id="form">
     <h4>Books Requested</h4>
     <table border=1>
         <tr>
@@ -49,5 +49,5 @@
         </tr>
     <% end %>
     </table>
-    <%= link_to 'Back', books_path %>
+    <%= link_to 'Back', user_path(current_user) %>
 </div>
