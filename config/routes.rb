@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'accept' => 'leases#accept'
+  get 'activate' => 'users#activate'
+  resources :messages, only: [:create, :index]
   resources :users
   resources :books
   resources :leases
