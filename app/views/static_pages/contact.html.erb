@@ -13,16 +13,20 @@
             <li>Email.reochoggia@yahoo.com, rochoggia@maseno.ac.ke</li>
         </ul>
     </div>
-    <div class="medium-6 columns" id="form">
-        <h5>You can also leave as a message to help us serve you better<h5>
-                <div class="callout">
-                    <%= form_for([@user.messages.build], remote: true) do |f| %>
-                    <%= render 'shared/error_messages', object: f.object %>
-                        <%= f.text_field :title, placeholder: "message title" %>
-                        <%= f.text_area :description, placeholder: "message description" %>
-                        <%= f.hidden_field :user_id %>
-                        <%= f.submit "send message", class: "button"%></td>
-                <% end %>
-                </div>
-    </div>
+    <% if logged_in? %>
+        <% if !current_user.admin? %>
+            <div class="medium-6 columns" id="form">
+                <h5>You can also leave as a message to help us serve you better<h5>
+                        <div class="callout">
+                            <%= form_for([@user.messages.build], remote: true) do |f| %>
+                                <%= render 'shared/error_messages', object: f.object %>
+                                <%= f.text_field :title, placeholder: "message title" %>
+                                <%= f.text_area :description, placeholder: "message description" %>
+                                <%= f.hidden_field :user_id %>
+                                <%= f.submit "send message", class: "button"%></td>
+                        <% end %>
+                        </div>
+            </div>
+        <% end %>
+    <% end %>
 </div>
