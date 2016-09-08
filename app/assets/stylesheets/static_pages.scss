@@ -5,9 +5,17 @@
 // @import 'mixins';
 #msg{
     text-align: center;
-    padding-top: 32.5px;
+    padding-top: 200px;
     padding-bottom: 50px;
 }
+#intro{
+    background-image: image-url('header-background.jpg');
+    background-attachment: fixed;
+    color: white;
+    position: relative;
+    height: 100%;
+    // @include background-size(cover);
+} 
 #footer{
     height: 50px;
     bottom: 0px;

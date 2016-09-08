@@ -16,14 +16,14 @@ class LeasesController < ApplicationController
     begin
       if @lease.save
         flash[:success] = "Request for #{@lease.book.title} was successful."
-        redirect_to books_path
+      redirect_to user_path(current_user)
       else
         flash[:danger] = "Error in borrowing this book"
-        redirect_to books_path
+      redirect_to user_path(current_user)
       end
     rescue
       flash[:info] ="You can't borrow same book twice"
-      redirect_to books_path
+      redirect_to user_path(current_user)
     end
   end
   def accept

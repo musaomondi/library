@@ -46,11 +46,13 @@
         </div>
     </div>
 <% else %>
+    <section id="intro">
     <div class="medium-12 columns medium-offset-0" id="msg" >
         <h2>Welcome to Maseno University Library</h2>
         <p>This is where you can get all books you need in a much quicker way than ever before</p>
         Want to be a member?  <%= link_to "Register now!", new_user_path(@user), class: "button" %><br>
     </div>
+    </section>
     <div >
         <%= image_tag("college-campus-lib.jpg") %>
     </div>
